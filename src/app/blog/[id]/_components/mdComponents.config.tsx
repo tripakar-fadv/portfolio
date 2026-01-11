@@ -35,11 +35,11 @@ const config: Partial<Components> = {
             </Link>
         );
     },
-    input: ({ type, ...rest }) => {
-        if (type === "checkbox") {
-            return <Checkbox checked={rest.checked} disabled={rest.disabled} />;
-        } else null;
-    },
+    // input: ({ type, ...rest }) => {
+    //     if (type === "checkbox") {
+    //         return <Checkbox checked={rest.checked} disabled={rest.disabled} />;
+    //     } else null;
+    // },
     ul: ({ children }) => <List marker="disc"> {children} </List>,
     ol: ({ children }) => <List marker="decimal"> {children} </List>,
     li: ({ children, id }) => {
