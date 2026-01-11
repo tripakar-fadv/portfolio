@@ -1,56 +1,60 @@
-'use client'
+"use client";
 
-import React, { useState } from 'react'
-import Box from '@mui/joy/Box';
-import Drawer from '@mui/joy/Drawer';
-import Button from '@mui/joy/Button';
-import List from '@mui/joy/List';
-import ListItem from '@mui/joy/ListItem';
-import ListItemButton from '@mui/joy/ListItemButton';
-import DensityMedium from '@mui/icons-material/DensityMedium';
-import { scroller } from 'react-scroll';
-import { useTheme } from '@mui/joy/styles';
+import React, { useState } from "react";
+import Box from "@mui/joy/Box";
+import Drawer from "@mui/joy/Drawer";
+import Button from "@mui/joy/Button";
+import List from "@mui/joy/List";
+import ListItem from "@mui/joy/ListItem";
+import ListItemButton from "@mui/joy/ListItemButton";
+import DensityMedium from "@mui/icons-material/DensityMedium";
+import { scroller } from "react-scroll";
+import { useTheme } from "@mui/joy/styles";
 
 const SideNav = () => {
     const theme = useTheme();
     const [open, setOpen] = useState(false);
 
     const toggleDrawer =
-        (inOpen: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
+        (inOpen: boolean) =>
+        (event: React.KeyboardEvent | React.MouseEvent) => {
             if (
-                event.type === 'keydown' &&
-                ((event as React.KeyboardEvent).key === 'Tab' ||
-                    (event as React.KeyboardEvent).key === 'Shift')
+                event.type === "keydown" &&
+                ((event as React.KeyboardEvent).key === "Tab" ||
+                    (event as React.KeyboardEvent).key === "Shift")
             ) {
                 return;
             }
 
             setOpen(inOpen);
-        }
+        };
 
     return (
-        <Box sx={(theme) => ({
-            display: 'flex',
-            [theme.breakpoints.up(780)]: {
-                display: 'none'
-            }
-        })}>
+        <Box
+            sx={(theme) => ({
+                display: "flex",
+                [theme.breakpoints.up(780)]: {
+                    display: "none",
+                },
+            })}
+        >
             <Button
                 variant="plain"
                 color="neutral"
                 onClick={toggleDrawer(true)}
                 sx={{
-                    position: 'absolute',
+                    position: "absolute",
                     top: 10,
                     left: 10,
-                    '&:hover': {
-                        backgroundColor: '#ffffff44',
-                    }
+                    "&:hover": {
+                        backgroundColor: "#ffffff44",
+                    },
                 }}
             >
-                <DensityMedium sx={{
-                    color: theme.vars.palette.primary[50]
-                }}
+                <DensityMedium
+                    sx={{
+                        color: theme.vars.palette.primary[50],
+                    }}
                 />
             </Button>
             <Drawer open={open} onClose={toggleDrawer(false)}>
@@ -60,18 +64,29 @@ const SideNav = () => {
                     onKeyDown={toggleDrawer(false)}
                 >
                     <List role="menubar">
-                        {['about', 'experience', 'education', 'skills', 'blogs', 'contact'].map((section, i) => (
+                        {[
+                            "about",
+                            "experience",
+                            "education",
+                            "skills",
+                            "blogs",
+                            "contact",
+                        ].map((section, i) => (
                             <React.Fragment key={section}>
                                 <ListItem role="none">
                                     <ListItemButton
                                         role="menuitem"
                                         component="a"
-                                        onClick={() => scroller.scrollTo(section, {
-                                            duration: 500 * (i + 1),
-                                            smooth: true,
-                                        })}
+                                        onClick={() =>
+                                            scroller.scrollTo(section, {
+                                                duration: 500 * (i + 1),
+                                                smooth: true,
+                                            })
+                                        }
                                     >
-                                        {section.replace(/^./, n => n.toUpperCase())}
+                                        {section.replace(/^./, (n) =>
+                                            n.toUpperCase()
+                                        )}
                                     </ListItemButton>
                                 </ListItem>
                             </React.Fragment>
@@ -80,8 +95,7 @@ const SideNav = () => {
                 </Box>
             </Drawer>
         </Box>
-    )
+    );
+};
 
-}
-
-export default SideNav
+export default SideNav;

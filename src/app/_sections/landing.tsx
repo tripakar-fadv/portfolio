@@ -1,34 +1,35 @@
-'use client'
+"use client";
 
-import Button from '@mui/joy/Button'
-import Divider from '@mui/joy/Divider'
-import Typography from '@mui/joy/Typography'
-import { Parallax } from 'react-parallax'
-import { scroller } from 'react-scroll'
-import ExpandMoreOutlined from '@mui/icons-material/ExpandMoreOutlined'
-import { useTheme } from '@mui/joy'
-import Nav from '../_components/nav'
-import SideNav from '../_components/sideNav'
+import Button from "@mui/joy/Button";
+import Divider from "@mui/joy/Divider";
+import Typography from "@mui/joy/Typography";
+import { Parallax } from "react-parallax";
+import { scroller } from "react-scroll";
+import ExpandMoreOutlined from "@mui/icons-material/ExpandMoreOutlined";
+import { useTheme } from "@mui/joy";
+import Nav from "../_components/nav";
+import SideNav from "../_components/sideNav";
 
 const Landing = () => {
     const theme = useTheme();
 
     return (
         <Parallax
-            bgImage='images/landing-bg.jpg'
-            bgImageAlt='software developer landing page background'
+            bgImage="images/landing-bg.jpg"
+            bgImageAlt="software developer landing page background"
             strength={-200}
         >
-            <div style={{
-                minHeight: '100vh',
-                minWidth: '100vw',
-                backgroundColor: `rgba(${theme.vars.palette.primary.mainChannel} / 0.6)`,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                flexDirection: 'column'
-
-            }}>
+            <div
+                style={{
+                    minHeight: "100vh",
+                    minWidth: "100vw",
+                    backgroundColor: `rgba(${theme.vars.palette.primary.mainChannel} / 0.6)`,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    flexDirection: "column",
+                }}
+            >
                 <Nav />
                 <SideNav />
 
@@ -38,46 +39,53 @@ const Landing = () => {
                     </text>
                 </svg>
 
-                <Divider sx={{
-                    width: '30%',
-                    backgroundColor: theme.vars.palette.primary[300],
-                    margin: '20px auto',
-                    blockSize: '2px !important'
-                }} />
+                <Divider
+                    sx={{
+                        width: "30%",
+                        backgroundColor: theme.vars.palette.primary[300],
+                        margin: "20px auto",
+                        blockSize: "2px !important",
+                    }}
+                />
 
-                <Typography level='h2' sx={{
-                    color: theme.vars.palette.primary[200],
-                    animation: 'fadeIn',
-                    animationDuration: '4s',
-                    animationDelay: '2s',
-                    animationFillMode: 'both'
-                }}>
+                <Typography
+                    level="h2"
+                    sx={{
+                        color: theme.vars.palette.primary[200],
+                        animation: "fadeIn",
+                        animationDuration: "4s",
+                        animationDelay: "2s",
+                        animationFillMode: "both",
+                    }}
+                >
                     Fullstack Developer
                 </Typography>
 
                 <Button
-                    size='lg'
-                    variant='outlined'
+                    size="lg"
+                    variant="outlined"
                     sx={{
                         bottom: 40,
-                        position: 'absolute',
+                        position: "absolute",
                         borderRadius: 20,
                         color: theme.vars.palette.primary[50],
 
-                        '&:hover': {
-                            backgroundColor: '#ffffff44',
-                        }
+                        "&:hover": {
+                            backgroundColor: "#ffffff44",
+                        },
                     }}
-                    onClick={() => scroller.scrollTo('about', {
-                        duration: 1000,
-                        smooth: true,
-                    })}
+                    onClick={() =>
+                        scroller.scrollTo("about", {
+                            duration: 1000,
+                            smooth: true,
+                        })
+                    }
                 >
                     <ExpandMoreOutlined />
                 </Button>
             </div>
         </Parallax>
-    )
-}
+    );
+};
 
-export default Landing
+export default Landing;
